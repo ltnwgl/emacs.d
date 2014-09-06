@@ -42,4 +42,5 @@
 (global-set-key (kbd "C-c ; j") 'rinari-web-server-jp)
 (global-set-key (kbd "C-c ; u") 'rinari-web-server-us)
 
+(setq password-cache-expiry nil)
 (provide 'init-local)
