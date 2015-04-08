@@ -6,7 +6,7 @@
 ;;; ws-trim
 (require 'ws-trim)
 (global-ws-trim-mode t)
-
+(setq-default tab-width 4)
 ;;; to remove dir
 (setq delete-by-moving-to-trash t)
 
@@ -43,4 +43,6 @@
 (global-set-key (kbd "C-c ; u") 'rinari-web-server-us)
 
 (setq password-cache-expiry nil)
+
+
 (provide 'init-local)
