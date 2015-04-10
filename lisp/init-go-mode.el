@@ -9,7 +9,9 @@
 (require 'go-flymake)
 (require 'go-flycheck)
 (require 'go-autocomplete)
+(require 'go-errcheck)
 (require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/Users/gewang/.emacs.d/site-listp//ac-dict")
 (ac-config-default)
 (defun my-go-mode-hook ()
   ; Call Gofmt before saving
@@ -23,6 +25,7 @@
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+;(add-hook 'go-mode-hook 'go-eldoc-setup)
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
