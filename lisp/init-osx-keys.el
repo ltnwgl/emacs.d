@@ -1,7 +1,9 @@
 (when *is-a-mac*
-;  (setq mac-command-modifier 'meta)
-;  (setq mac-option-modifier 'none)
+                                        ;  (setq mac-command-modifier 'meta)
+                                        ;  (setq mac-option-modifier 'none)
   (setq default-input-method "MacOSX")
+  (setq-default default-input-method "MacOSX")
+  >>>>>>> Use setq-default to set default-input-method, to allow user overrides
   ;; Make mouse wheel / trackpad scrolling less jerky
   (setq mouse-wheel-scroll-amount '(1
                                     ((shift) . 5)
