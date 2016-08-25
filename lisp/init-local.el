@@ -39,10 +39,19 @@
   (setenv "RAILS_ENV" "development")
   (rinari-web-server edit-cmd-args))
 
+(defun rinari-web-server-normal (&optional edit-cmd-args)
+  "Start US site with EDIT-CMD-ARGS."
+  (interactive "P")
+  (remove-rails-tmp)
+  (rvm-activate-corresponding-ruby )
+  (rinari-web-server edit-cmd-args))
+
 (global-set-key (kbd "C-c ; j") 'rinari-web-server-jp)
 (global-set-key (kbd "C-c ; u") 'rinari-web-server-us)
+(global-set-key (kbd "C-c ; w") 'rinari-web-server-normal)
 
 (setq password-cache-expiry nil)
-
-
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(rvm-activate-corresponding-ruby )
 (provide 'init-local)
