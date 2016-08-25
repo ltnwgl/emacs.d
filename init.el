@@ -96,7 +96,7 @@
 (require 'init-haskell)
 (require 'init-elm)
 (require 'init-ruby-mode)
-                                        ;(require 'init-go-mode)
+(require 'init-go-mode)
 (require 'init-rails)
 (require 'init-sql)
 
