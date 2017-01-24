@@ -12,11 +12,11 @@
 
 (add-to-list 'exec-path "$GOPATH/bin")
 (setq exec-path (cons "$GOPATH/bin" exec-path))
-(add-hook 'go-mode-hook 'company-mode)
-(add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
-
+(defun auto-complete-for-go ()
+  (auto-complete-mode 1))
+(add-hook 'go-mode-hook 'auto-complete-for-go)
+(with-eval-after-load 'go-mode
+  (require 'go-autocomplete))
 (defun my-go-mode-hook ()
                                         ; Use goimports instead of go-fmt
   (setq gofmt-command "goimports")
@@ -27,9 +27,10 @@
       (set (make-local-variable 'compile-command)
            "go generate && go build -v && go test -v && go vet"))
                                         ; Go oracle
-  (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+                                        ;  (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
                                         ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
-
+(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
+(require 'gotests)
 (provide 'init-go-mode)
